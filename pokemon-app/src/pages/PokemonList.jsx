@@ -41,6 +41,11 @@ export default function PokemonList() {
         {loading && <p>Cargando...</p>}
         {error && <p className="text-red-600">Error al cargar la lista.</p>}
 
+        {/* Mensaje si no se encuentra el Pokémon */}
+        {debouncedQuery && !searched && !loading && (
+          <p className="text-red-600 mt-4">No se encontró ningún Pokémon con ese nombre.</p>
+        )}
+
         {debouncedQuery && searched ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             <Link to={`/pokemon/${searched.name}`}>
@@ -55,7 +60,10 @@ export default function PokemonList() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {list.map((p) => (
               <Link key={p.name} to={`/pokemon/${p.name}`}>
-                <PokemonCard name={p.name} image={`https://img.pokemondb.net/sprites/home/normal/${p.name}.png`} />
+                <PokemonCard
+                  name={p.name}
+                  image={`https://img.pokemondb.net/sprites/home/normal/${p.name}.png`}
+                />
               </Link>
             ))}
           </div>
