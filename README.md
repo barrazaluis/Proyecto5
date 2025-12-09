@@ -1,16 +1,50 @@
-# React + Vite
+# Pokémon App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada con **React + Vite** que permite buscar y explorar información de Pokémon.  
+Incluye componentes reutilizables, hooks personalizados y navegación entre páginas.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Funcionalidades
+- 🔎 Buscar Pokémon por nombre.
+- 📋 Mostrar listado de Pokémon con tarjetas.
+- 📄 Ver detalle de cada Pokémon.
+- ⚠️ Manejo de errores con `ErrorBoundary`.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📂 Estructura básica
+src/
+ ├── components/   # Componentes reutilizables
+ ├── hooks/        # Hooks personalizados
+ ├── pages/        # Vistas principales
+ ├── lib/          # API y utilidades
+ ├── assets/       # Recursos gráficos
+ ├── main.jsx      # Punto de entrada
+ └── router.jsx    # Configuración de rutas
+public/            # Archivos estáticos
+index.html         # HTML principal
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Instalación y uso
+
+Clonación del repositorio:
+- git clone https://github.com/barrazaluis/Proyecto5.git
+
+
+Deploy
+- Netlify: https://69378fafc3f81a783e2510c1--creative-valkyrie-dbe18d.netlify.app/
+
+🛠️ Tecnologías
+- React
+- Vite
+- Netlify
+
+📖 Notas
+La estructura del Proyecto fue reorganizada desde carpeta pokemon-app a la raíz del repositorio con el objetivo de la publicación.
+El historial de commits se mantiene se adjunta captura donde se muestan 10 commits totales.
+
+
+
+
