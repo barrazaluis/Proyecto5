@@ -26,6 +26,26 @@ export default function PokemonList() {
     return data.results
   }, [data])
 
+  // Bloque de paginación reutilizable
+  const Pagination = () => (
+    <div className="mt-6 flex items-center justify-center gap-3">
+      <button
+        className="px-3 py-2 border rounded disabled:opacity-50"
+        onClick={() => setPage((n) => Math.max(0, n - 1))}
+        disabled={page === 0}
+      >
+        Anterior
+      </button>
+      <span className="text-sm">Página {page + 1}</span>
+      <button
+        className="px-3 py-2 border rounded disabled:opacity-50"
+        onClick={() => setPage((n) => n + 1)}
+      >
+        Siguiente
+      </button>
+    </div>
+  )
+
   return (
     <>
       <Header />
@@ -46,8 +66,11 @@ export default function PokemonList() {
           <p className="text-red-600 mt-4">No se encontró ningún Pokémon con ese nombre.</p>
         )}
 
+        {/* Paginación arriba */}
+        {!debouncedQuery && <Pagination />}
+
         {debouncedQuery && searched ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-3 gap-6">
             <Link to={`/pokemon/${searched.name}`}>
               <PokemonCard
                 name={searched.name}
@@ -57,7 +80,7 @@ export default function PokemonList() {
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-3 gap-6">
             {list.map((p) => (
               <Link key={p.name} to={`/pokemon/${p.name}`}>
                 <PokemonCard
@@ -69,22 +92,8 @@ export default function PokemonList() {
           </div>
         )}
 
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <button
-            className="px-3 py-2 border rounded disabled:opacity-50"
-            onClick={() => setPage((n) => Math.max(0, n - 1))}
-            disabled={page === 0}
-          >
-            Anterior
-          </button>
-          <span className="text-sm">Página {page + 1}</span>
-          <button
-            className="px-3 py-2 border rounded disabled:opacity-50"
-            onClick={() => setPage((n) => n + 1)}
-          >
-            Siguiente
-          </button>
-        </div>
+        {/* Paginación abajo */}
+        {!debouncedQuery && <Pagination />}
       </main>
     </>
   )
